@@ -1,0 +1,154 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Jayya 💖</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+      color: #d63384;
+      overflow: hidden;
+    }
+
+    #container {
+      margin-top: 80px;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin: 10px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:first-child {
+      background: #ff69b4;
+      color: white;
+      box-shadow: 0 4px 10px rgba(255,105,180,0.5);
+    }
+
+    button:first-child:hover {
+      background: #ff85c2;
+    }
+
+    button:last-child {
+      background: #ffc0d9;
+    }
+
+    #flower {
+      font-size: 120px;
+      margin-top: 30px;
+      animation: bloom 2.5s ease-in-out forwards;
+    }
+
+    #sorryText {
+      font-size: 18px;
+      max-width: 520px;
+      margin: 30px auto;
+      line-height: 1.7;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes bloom {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1.3);
+        opacity: 1;
+      }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+      color: #ff69b4;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <h1 id="question">Jayya, do you love me? 💗</h1>
+
+    <div id="buttons">
+      <button onclick="showSorry()">Yes</button>
+      <button onclick="moveNo()">No</button>
+    </div>
+
+    <div id="flower" class="hidden">🌸</div>
+
+    <p id="sorryText" class="hidden">
+      Jayya, I’m really sorry if I hurt you 😔<br><br>
+
+      I want you to know how deeply I love you 💖  
+      You mean the world to me, more than words can explain.<br><br>
+
+      No matter what happens, I promise I’ll always be there for you —  
+      supporting you, caring for you, and standing by you 🤍<br><br>
+
+      You are special, you are loved, and you will always have me 🌸
+    </p>
+  </div>
+
+  <script>
+    function showSorry() {
+      document.getElementById("buttons").style.display = "none";
+      document.getElementById("question").innerText = "This is for you, Jayya 💖";
+      document.getElementById("flower").classList.remove("hidden");
+      document.getElementById("sorryText").classList.remove("hidden");
+      startHearts();
+    }
+
+    function moveNo() {
+      alert("Please choose yes 🥺💗");
+    }
+
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }, 500);
+    }
+  </script>
+
+</body>
+</html>
